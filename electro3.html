@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELT3</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <header>
+    <nav class="menu">
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu" class="menu-icon">&#9776;</label>
+        <a href="index.html">freeMARKT</a>
+
+        <nav class="menu-items">
+            <a href="pag1.html">Computadoras</a>
+            <a href="pag2.html">Videojuegos</a>
+            <a href="pag3.html">Electronica</a>
+        </nav>
+        <nav class="menu">
+            <a href="formulario.html">Registrarse</a>
+        </nav>
+
+        <div class="menu-car">
+            <div class="car-notification">0</div>
+            <img src="img/car.png" alt="" width="20px">
+        </div>
+
+    </nav>
+</header>
+      <br><br><br><br>
+      <section>
+        
+<img class="box1" src="img/electronica3.jpg" alt="">
+       
+
+        <div class="box2">
+            <h3>Jurassic World - Auriculares para niños, diadema ajustable, sonido estéreo, conector de 0.138 in,
+               auriculares con cable para niños, sin enredos, control de volumen, auriculares para niños sobre la oreja para escuela, hogar, viajes</h3>
+            <hr>
+            
+            <hr>
+            <p> Sobre este artículo</p>
+            <ul>    
+                <li> Auriculares para niños: Conecte cualquier dispositivo, incluidos teléfonos inteligentes, tabletas y computadoras para disfrutar de un sonido de alta calidad para entretenimiento y/o educación. Escucha música, mira películas, televisión y YouTube, o úsalo para aprendizaje remoto,
+                   clases virtuales, audiolibros y más. Compatible con dispositivos equipados con un conector para auriculares de 0.138 in.</li>
+                <li>Divisor de auriculares: Utilice el puerto compartido incluido para conectar dos pares de auriculares con cable al mismo dispositivo y escuchar música/audio con amigos. ¡Compra en la tienda de la marca eKids para más auriculares para niños!</li>
+                <li>Ajuste personalizado: los cómodos auriculares cuentan con una diadema ajustable y almohadillas suaves para proporcionar un ajuste personalizado cuando se usan auriculares para la escuela, el hogar o los viajes. Disfruta de una comodidad duradera durante el aprendizaje remoto, clases virtuales, viajes por carretera y viajes en avión</li>
+               
+            </ul>
+        </div>
+        
+        <div class="box3">
+          <p><span>$19.99</span></p>
+          <p >Cantidad</p>
+          <div class="details-product">
+            <div class="input">
+              <img src="img/minus.png" class="input-minus" width="20px" alt="">
+              <input class="input-number" type="number" value="0">
+              <img src="img/plus.png" class="input-plus" width="20px">
+            </div>
+            <br>
+            <button class="details-button">Add to cart</button>
+
+          </div>
+          <br>
+        
+          <form action="formulario.html">
+            <button class="comprar">Comprar</button>
+          </form>
+           <br>
+           <p class="enviado">Enviado por freeMARKT.com</p>
+           <p class="enviado">Vendido por freeMARKT.com</p>
+          
+        </div>
+      </section>
+        <br><br> 
+            <!--INICIO MODAL-->
+            <div class="car-modal"> 
+              <div class="close-modal">
+              <p>Carrito</p>
+              <img src="img/close.png" class="close"  alt="">
+              </div>
+              <hr>
+                <div class="car-modal-container">
+                  <div class="details-container">
+                    <img src="img/electronica3.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>
+                        Jurassic World - Auriculares para niños <span>( Precio: $19.99)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button class="comprar">Proceder al pago</button>
+                  </form>
+              
+              
+                </div>
+              </div>
+                        <!--FIN MODAL-->
+         <footer>
+            <nav>
+                <a href="">Condiciones de uso</a>
+                <a href="">Avisos de Privacidad</a>
+                
+            </nav>
+            <p>Todos los derechos reservados &copy; 2024 freeMARKT.com</p>
+                </footer>
+     
+  <!------INICIO CODIGO JAVASCRIPT---------->    
+  <script >
+    // CANTIDAD DE ARTICULOS INGRESADOS POR EL USUARIO
+    let minusBtn=document.querySelector('.input-minus');
+    let plusBtn=document.querySelector('.input-plus');
+    let userInput=document.querySelector('.input-number');
+    
+    
+    let userInputNumber=0;
+    
+    plusBtn.addEventListener('click',()=>{
+        userInputNumber++;
+        userInput.value=userInputNumber;
+        console.log(userInputNumber)
+       
+    });
+    
+    minusBtn.addEventListener('click',()=>{
+        userInputNumber--;
+        if(userInputNumber<=0){
+            userInputNumber=0;
+        }
+        userInput.value=userInputNumber;
+        console.log(userInputNumber);
+        
+    });
+    
+    //AGREGAR TOTAL DE PRODUCTOS AL CARRITO
+    const addToCart =document.querySelector('.details-button');
+    let cartNotification=document.querySelector('.car-notification');
+    let lastValue=parseInt(cartNotification.innerText);
+    
+    addToCart.addEventListener('click',()=>{
+    
+        alert('Agregado al carrito');
+        lastValue +=userInputNumber;
+    
+        cartNotification.innerText=lastValue;
+        cartNotification.style.display='block';
+        drawProduct();
+        
+    
+    });
+    
+    
+    //MOSTRAR MODAL CON EL DETALLE DE CARRITO
+    const carIcon=document.querySelector('.menu-car');
+    const carModal=document.querySelector('.car-modal');
+    //let priceCar=document.querySelector('.car-price');
+    const productContainer=document.querySelector('.car-modal-container');
+    
+    
+    
+    
+    carIcon.addEventListener('click', ()=>{
+        carModal.style.display='block';
+      
+        if(lastValue==0){
+            productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+    
+            
+        }else{
+            drawProduct();
+        }
+    
+    });
+    
+    //BORRAR LOS PRODUCTOS AGREGADOS AL CARRITO
+    function deleteProduct(){
+        const deleteProduct=document.querySelector('.delete');
+    
+        
+        deleteProduct.addEventListener('click',()=>{
+        productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+        lastValue=0;
+        cartNotification.innerText=lastValue;
+        });
+    }
+    
+    
+    //FUNCIONES
+    function drawProduct(){
+        productContainer.innerHTML=
+        
+        `  <div class="details-container">
+                    <img src="img/electronica3.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>
+                        Jurassic World - Auriculares para niños <span>( Precio: $19.99)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button>Proceder al pago</button>
+                  </form>
+               `
+                 
+    
+        
+        deleteProduct()
+        let priceCar=document.querySelector('.car-price');
+        priceCar.innerHTML=`Subtotal(${lastValue} productos):    <span> $ ${lastValue*19.99} </span>`;
+    }
+    
+    //CERRAR EL MODAL
+    const closeModal=document.querySelector('.close');
+    
+    closeModal.addEventListener('click',()=>{
+        carModal.style.display='none';
+    });
+    
+        </script> <!---------FIN JAVASCRIPT---------->
+</body>
+</html>

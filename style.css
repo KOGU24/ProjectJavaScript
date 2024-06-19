@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+a{
+    text-decoration: none;
+}
+body{
+    background-color:gainsboro ;
+}
+
+header{
+    position: fixed;
+    background-color :#212538;
+    width: 100%;
+    height: 50px
+
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu a{
+    color: whitesmoke;
+    font-size:10 px;
+    font-family: Georgia;
+    margin: 7px;
+}
+
+.menu a:hover{
+color:orange;
+}
+
+.menu-car img{
+    cursor: pointer;
+    width: 30px;
+    
+}
+
+section{
+    
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+
+}
+
+.container{
+    margin: 20px;
+    background-color: white;
+    width: 30%;
+    height: 270px;
+    text-align: center;
+    border-radius: 5px;
+
+
+}
+.container p{
+    color: black;
+    font-family: arial black;
+}
+
+h3{
+    color: #2c2727;
+}
+
+h4{
+    color:#2c2727 ;
+}
+.container img{
+    width: 80%;
+    height:180px ;   
+    
+}
+
+.container:hover{
+    box-shadow: 2px 2px 10px;
+  
+}
+
+.container a:hover{
+    color: orange;
+}
+
+footer{
+    background-color:#212538 ;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+
+footer a,p{
+    color: whitesmoke;
+    margin: 10px;
+    
+}
+
+footer a:hover{
+    color: orange;
+}
+
+.car-notification{
+    color: orange;
+    text-align: center;
+    
+}
+#btn-menu{
+    display:none;
+}
+.menu-icon{
+    display: none;
+    cursor: pointer;
+}
+@media (width<750px){
+    .menu-icon{
+        display:block ;
+       font-size: 25px;
+       color: aliceblue;
+    }
+    .menu-items{
+        position: absolute;
+        background-color:#212538;
+        width: 50%;
+        height: auto;
+        top: 50px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        translate: -100%;
+        transition-duration: 400ms;
+        
+    }
+    .menu-items a{
+        text-align: center;
+    }
+
+   #btn-menu:checked ~ .menu-items{
+    translate: 0;
+  
+   }
+section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+ 
+}
+.container{
+    width: 45%;
+    margin:5px auto;
+    height: auto;
+       
+}
+.container img{
+    height: 90px;
+}
+
+}

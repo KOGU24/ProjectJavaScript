@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GM1</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <header>
+    <nav class="menu">
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu" class="menu-icon">&#9776;</label>
+        <a href="index.html">freeMARKT</a>
+
+        <nav class="menu-items">
+            <a href="pag1.html">Computadoras</a>
+            <a href="pag2.html">Videojuegos</a>
+            <a href="pag3.html">Electronica</a>
+        </nav>
+        <nav class="menu">
+            <a href="formulario.html">Registrarse</a>
+        </nav>
+
+        <div class="menu-car">
+            <div class="car-notification">0</div>
+            <img src="img/car.png" alt="" width="20px">
+        </div>
+
+    </nav>
+</header>
+      <br><br><br><br>
+      <section>
+        
+<img  class="box1" src="img/juego1.jpg" alt="">
+      
+
+        <div class="box2">
+            <h3>PlayStation Portal Remote Player - PlayStation 5</h3>
+            <hr>
+            <table>
+              <tr>
+                <td>Marca</td>
+                <td>Acer</td> 
+              </tr>
+              <tr>
+                <td>Nombre del modelo</td>
+                <td>Laptop</td> 
+              </tr>
+              <tr>
+                <td>Tamano de pantalla</td>
+                <td>15,6 pulg</td> 
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>plateado</td> 
+              </tr>
+              <tr>
+                <td>Tamno del disco duro</td>
+                <td>128 GB</td> 
+              </tr>
+              <tr>
+                <td>Modelo de CPU</td>
+                <td>Ryzen 3</td> 
+              </tr>
+              <tr>
+                <td>Memoria RAM</td>
+                <td>8 GB</td> 
+              </tr>
+              <tr>
+                <td>Sistema Operativo</td>
+                <td>Windows 11 S</td> 
+              </tr>
+              
+            </table>
+            <hr>
+            <p> Sobre este artículo</p>
+            <ul>    
+                <li>Pon tu PS5 en la palma de tu mano: el reproductor remoto PlayStation Portal te da acceso a los juegos de tu PS5 a través de tu Wi-Fi doméstico*, lo que te permite saltar directamente a los juegos sin necesidad de jugar en un televisor.</li>
+                <li>Juega tu colección de juegos: el reproductor remoto PlayStation Portal puede jugar juegos compatibles que hayas instalado en tu consola PS5, incluidos tus juegos favoritos para PS5 y PS4. </li>
+                <li>Experimenta una inmersión impresionante con las características del controlador inalámbrico DualSense: siente la increíble inmersión de retroalimentación háptica y disparadores adaptativos en juegos compatibles.</li>
+                <li>Hermosa pantalla LCD de 8 pulgadas: disfruta de cada exquisito detalle de tus juegos favoritos mientras cobran vida en una pantalla Full HD brillante y hermosa.</li>
+            </ul>
+        </div>
+
+        <div class="box3">
+          <p><span>$238.45</span></p>
+          <p >Cantidad</p>
+          <div class="details-product">
+            <div class="input">
+              <img src="img/minus.png" class="input-minus" width="20px" alt="">
+              <input class="input-number" type="number" value="0">
+              <img src="img/plus.png" class="input-plus" width="20px">
+            </div>
+            <br>
+            <button class="details-button">Add to cart</button>
+
+          </div>
+          <br>
+        
+          <form action="formulario.html">
+            <button class="comprar">Comprar</button>
+          </form>
+           <br>
+           <p class="enviado">Enviado por freeMARKT.com</p>
+           <p class="enviado">Vendido por freeMARKT.com</p>
+          
+        </div>
+      </section>
+        <br><br>
+            <!--INICIO MODAL-->
+            <div class="car-modal"> 
+              <div class="close-modal">
+              <p>Carrito</p>
+              <img src="img/close.png" class="close"  alt="">
+              </div>
+              <hr>
+                <div class="car-modal-container">
+                  <div class="details-container">
+                    <img src="img/juego1.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>
+                        PlayStation Portal Remote Player - PlayStation 5<span>( Precio: $238.45)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button class="comprar">Proceder al pago</button>
+                  </form>
+              
+              
+                </div>
+              </div>
+                        <!--FIN MODAL--> 
+         <footer>
+            <nav>
+                <a href="">Condiciones de uso</a>
+                <a href="">Avisos de Privacidad</a>
+                
+            </nav>
+            <p>Todos los derechos reservados &copy; 2024 freeMARKT.com</p>
+                </footer>
+     
+ <!------INICIO CODIGO JAVASCRIPT---------->    
+ <script >
+  // CANTIDAD DE ARTICULOS INGRESADOS POR EL USUARIO
+  let minusBtn=document.querySelector('.input-minus');
+  let plusBtn=document.querySelector('.input-plus');
+  let userInput=document.querySelector('.input-number');
+  
+  
+  let userInputNumber=0;
+  
+  plusBtn.addEventListener('click',()=>{
+      userInputNumber++;
+      userInput.value=userInputNumber;
+      console.log(userInputNumber)
+     
+  });
+  
+  minusBtn.addEventListener('click',()=>{
+      userInputNumber--;
+      if(userInputNumber<=0){
+          userInputNumber=0;
+      }
+      userInput.value=userInputNumber;
+      console.log(userInputNumber);
+      
+  });
+  
+  //AGREGAR TOTAL DE PRODUCTOS AL CARRITO
+  const addToCart =document.querySelector('.details-button');
+  let cartNotification=document.querySelector('.car-notification');
+  let lastValue=parseInt(cartNotification.innerText);
+  
+  addToCart.addEventListener('click',()=>{
+  
+      alert('Agregado al carrito');
+      lastValue +=userInputNumber;
+  
+      cartNotification.innerText=lastValue;
+      cartNotification.style.display='block';
+      drawProduct();
+      
+  
+  });
+  
+  
+  //MOSTRAR MODAL CON EL DETALLE DE CARRITO
+  const carIcon=document.querySelector('.menu-car');
+  const carModal=document.querySelector('.car-modal');
+  //let priceCar=document.querySelector('.car-price');
+  const productContainer=document.querySelector('.car-modal-container');
+  
+  
+  
+  
+  carIcon.addEventListener('click', ()=>{
+      carModal.style.display='block';
+    
+      if(lastValue==0){
+          productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+  
+          
+      }else{
+          drawProduct();
+      }
+  
+  });
+  
+  //BORRAR LOS PRODUCTOS AGREGADOS AL CARRITO
+  function deleteProduct(){
+      const deleteProduct=document.querySelector('.delete');
+  
+      
+      deleteProduct.addEventListener('click',()=>{
+      productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+      lastValue=0;
+      cartNotification.innerText=lastValue;
+      });
+  }
+  
+  
+  //FUNCIONES
+  function drawProduct(){
+      productContainer.innerHTML=
+      
+      `<div class="details-container">
+                    <img src="img/juego1.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>
+                        PlayStation Portal Remote Player - PlayStation 5<span>( Precio: $238.45)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button>Proceder al pago</button>
+                  </form> `
+               
+  
+      
+      deleteProduct()
+      let priceCar=document.querySelector('.car-price');
+      priceCar.innerHTML=`Subtotal(${lastValue} productos):    <span> $ ${lastValue*238.45} </span>`;
+  }
+  
+  //CERRAR EL MODAL
+  const closeModal=document.querySelector('.close');
+  
+  closeModal.addEventListener('click',()=>{
+      carModal.style.display='none';
+  });
+  
+      </script> <!---------FIN JAVASCRIPT---------->
+</body>
+</html>

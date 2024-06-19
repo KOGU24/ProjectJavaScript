@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Iniciar sesion</title>
+    <link rel="stylesheet" href="styleForm.css">  
+</head>
+<body>
+    <h2>freeMARKT</h2>
+    <form action="" name="formulario" method="get"> 
+        <h3>Iniciar sesion</h3>
+        <input type="email" name="correo" id="correo" placeholder="Correo electronico" autofocus>
+        <br> <br>
+        <input type="submit" name="boton" id="boton"  value="Enviar">  
+        <br>
+        <p>Eres nuevo?<a href="formulario.html">Crea una cuenta</a></p>
+    </form>
+    <br><br>
+    <hr>
+    <footer>
+        <nav>
+            <a href="">Condiciones de uso</a>
+            <a href="">Avisos de Privacidad</a>
+            
+        </nav>
+        <p>Todos los derechos reservados &copy; 2024 Amazon.conm</p>
+            </footer>
+
+    <script> // ---COMIENZA CODIGO JAVASCRIPT---
+         var formulario=document.getElementsByName("formulario")[0],  //CREACION DE VARIABLES
+            elementos=formulario.elements,
+            boton=document.getElementById("boton");
+
+          var validarCorreo=function(){      //FUNCION PARA VALIDAR CORREO
+                if (formulario.correo.value==0){
+                    alert("Ingrese su correo");
+                }else{
+                    //
+                }
+            };
+
+            var validar=function(){
+                validarCorreo();
+            }
+            formulario.addEventListener("submit",validarCorreo); // ENVIAR DATOS PARA VALIDAR FORMULARIO
+    </script>
+</body>
+</html>

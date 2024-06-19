@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleForm.css">
+    <title>Formulario</title>
+    
+</head>
+<body>
+    <h2>freeMARKT</h2>
+    <form action="" name="formulario" method="get">   
+        <h3>Crear una cuenta</h3>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" autofocus>
+        <br> <br>
+        <input type="email" name="correo" id="correo" placeholder="Correo electronico"> 
+        <br> <br>
+        <input type="password" name="contrasena" id="contrasena" placeholder="Contrasena">
+        <br><br>
+        <input type="radio" name="sexo" id="hombre" value="hombre">Hombre
+        <input type="radio" name="sexo" id="mujer" value="mujer">Mujer
+        <br><br>
+        <input type="checkbox" name="terminos" id="terminos">Aceptar Terminos y Condiciones 
+        <br><br>
+        <input type="submit" name="boton" id="boton" value="Enviar">
+        <br>
+        <p>Ya tienes una cuenta?<a href="form2.html">Iniciar sesion</a></p>
+    </form>
+    <br><br>
+    <hr>
+
+    <footer>
+        <nav>
+            <a href="">Condiciones de uso</a>
+            <a href="">Avisos de Privacidad</a>
+            
+        </nav>
+        <p>Todos los derechos reservados &copy; 2024 Amazon.conm</p>
+     </footer>
+            
+        <script> //---COMIENZA CODIGO JAVASCRIPT----
+            var formulario=document.getElementsByName("formulario")[0], // CREACION DE VARIABLES
+            elementos=formulario.elements,
+            boton=document.getElementById("boton");
+
+            var validarNombre=function(){     // FUNCION PARA VALIDAR NOMBRE
+                if (formulario.nombre.value==0){
+                    alert("Ingrese su nombre");
+                }else{
+                   //
+                }
+            };
+
+            var validarCorreo=function(){   // FUNCION PARA VALIDAR CORREO
+                if (formulario.correo.value==0){
+                    alert("Ingrese su correo");
+                }else{
+                    //
+                }
+            };
+            var validarContrasena=function(){    // FUNCION PARA VALIDAR CONTRASENA
+                if (formulario.contrasena.value==0){
+                    alert("Ingrese una contrasena");
+                }else{
+                    //
+                }
+            };
+
+            var validarRadio=function(){   // FUNCION PARA VALIDAR RADIO BUTTON
+                if (formulario.sexo[0].checked==true || formulario.sexo[1].checked==true ){
+
+                }else{
+                    alert("Completa el campo sexo");
+                }
+            };
+            var validarCheckBox=function(){   //FUNCION PARA VALIDAR CHECKBOX
+                if (formulario.terminos.checked==false){
+                    alert("Acepta los terminos");
+                }
+            };
+
+            var validar=function(){   
+                validarNombre();        //LLAMAR FUNCIONES CREADAS
+                validarCorreo();
+                validarContrasena();
+                validarRadio();
+                validarCheckBox();
+            };
+            formulario.addEventListener("submit",validar);  // ENVIAR DATOS PARA VALIDAR FORMULARIO
+
+        </script>
+    
+</body>
+</html>

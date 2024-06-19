@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELT1</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <header>
+    <nav class="menu">
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu" class="menu-icon">&#9776;</label>
+        <a href="index.html">freeMARKT</a>
+
+        <nav class="menu-items">
+            <a href="pag1.html">Computadoras</a>
+            <a href="pag2.html">Videojuegos</a>
+            <a href="pag3.html">Electronica</a>
+        </nav>
+        <nav class="menu">
+            <a href="formulario.html">Registrarse</a>
+        </nav>
+
+        <div class="menu-car">
+            <div class="car-notification">0</div>
+            <img src="img/car.png" alt="" width="20px">
+        </div>
+
+    </nav>
+</header>
+      <br><br><br><br>
+      <section>
+       
+<img class="box1" src="img/electronica1.jpg" alt="">
+       
+
+        <div class="box2">
+            <h3>CHGeek Cargador inalámbrico para automóvil, carga rápida de 15 W, soporte de teléfono para iPhone 
+              15 14 13 12 11 Pro Max Xs, Samsung Galaxy S23 Ultra S22 S21 S20, S10+ S9+, negro</h3>
+            <hr>
+            
+            <hr>
+            <p> Sobre este artículo</p>
+            <ul>    
+                <li> Cargador inalámbrico rápido Qi de 15 W: el chip mejorado de CHGeek garantiza una carga inteligente y segura para tu dispositivo
+                   habilitado para Qi a la velocidad más rápida. Soporta velocidad de carga máxima de 15 W para LG V60/V50/V40/V30+, cargador rápido de
+                    10 W para Samsung Galaxy S24 Ultra/S23/S22/S21/Note 10+, cargador rápido de 7.5 W para iPhone 15/14/13/12 Pro Max/11/XS Max/X, y 5W
+                     para otros teléfonos compatibles. </li>
+                <li>Identificación inteligente y carga inteligente: experimenta una conducción sin esfuerzo y segura con nuestro soporte para teléfono para automóvil.
+                   Sujeta automáticamente tu teléfono cuando está conectado, proporcionando comodidad y mayor seguridad. Los brazos del cargador se abren con un simple
+                    toque en el botón de 2 lados. Además, se apaga de forma inteligente y protege la batería de tu teléfono cuando está completamente cargado.</li>
+                <li>Detección de objetos extraños con alarma LED】Nuestro cargador inalámbrico de teléfono para automóvil prioriza la seguridad de tu teléfono. Si se detecta una 
+                  sustancia metálica entre el soporte del cargador y su teléfono, inmediatamente deja de cargarse y parpadea una luz roja para alertarlo. Esta característica
+                   innovadora evita eficazmente los daños causados por las altas temperaturas inducidas por el metal.</li>
+           
+            </ul>
+        </div>
+        <div class="box3">
+          <p><span>$23.39</span></p>
+          <p >Cantidad</p>
+          <div class="details-product">
+            <div class="input">
+              <img src="img/minus.png" class="input-minus" width="20px" alt="">
+              <input class="input-number" type="number" value="0">
+              <img src="img/plus.png" class="input-plus" width="20px">
+            </div>
+            <br>
+            <button class="details-button">Add to cart</button>
+
+          </div>
+          <br>
+        
+          <form action="formulario.html">
+            <button class="comprar">Comprar</button>
+          </form>
+           <br>
+           <p class="enviado">Enviado por freeMARKT.com</p>
+           <p class="enviado">Vendido por freeMARKT.com</p>
+          
+        </div>
+      </section>
+        <br><br> 
+            <!--INICIO MODAL-->
+            <div class="car-modal"> 
+              <div class="close-modal">
+              <p>Carrito</p>
+              <img src="img/close.png" class="close"  alt="">
+              </div>
+              <hr>
+                <div class="car-modal-container">
+                  <div class="details-container">
+                    <img src="img/electronica1.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>CHGeek Cargador inalámbrico para automóvil <span>( Precio: $23.39)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button class="comprar">Proceder al pago</button>
+                  </form>
+              
+              
+                </div>
+              </div>
+                        <!--FIN MODAL-->
+         <footer>
+            <nav>
+                <a href="">Condiciones de uso</a>
+                <a href="">Avisos de Privacidad</a>
+                
+            </nav>
+            <p>Todos los derechos reservados &copy; 2024 freeMARKT.com</p>
+                </footer>
+      
+   <!------INICIO CODIGO JAVASCRIPT---------->    
+   <script >
+    // CANTIDAD DE ARTICULOS INGRESADOS POR EL USUARIO
+    let minusBtn=document.querySelector('.input-minus');
+    let plusBtn=document.querySelector('.input-plus');
+    let userInput=document.querySelector('.input-number');
+    
+    
+    let userInputNumber=0;
+    
+    plusBtn.addEventListener('click',()=>{
+        userInputNumber++;
+        userInput.value=userInputNumber;
+        console.log(userInputNumber)
+       
+    });
+    
+    minusBtn.addEventListener('click',()=>{
+        userInputNumber--;
+        if(userInputNumber<=0){
+            userInputNumber=0;
+        }
+        userInput.value=userInputNumber;
+        console.log(userInputNumber);
+        
+    });
+    
+    //AGREGAR TOTAL DE PRODUCTOS AL CARRITO
+    const addToCart =document.querySelector('.details-button');
+    let cartNotification=document.querySelector('.car-notification');
+    let lastValue=parseInt(cartNotification.innerText);
+    
+    addToCart.addEventListener('click',()=>{
+    
+        alert('Agregado al carrito');
+        lastValue +=userInputNumber;
+    
+        cartNotification.innerText=lastValue;
+        cartNotification.style.display='block';
+        drawProduct();
+        
+    
+    });
+    
+    
+    //MOSTRAR MODAL CON EL DETALLE DE CARRITO
+    const carIcon=document.querySelector('.menu-car');
+    const carModal=document.querySelector('.car-modal');
+    //let priceCar=document.querySelector('.car-price');
+    const productContainer=document.querySelector('.car-modal-container');
+    
+    
+    
+    
+    carIcon.addEventListener('click', ()=>{
+        carModal.style.display='block';
+      
+        if(lastValue==0){
+            productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+    
+            
+        }else{
+            drawProduct();
+        }
+    
+    });
+    
+    //BORRAR LOS PRODUCTOS AGREGADOS AL CARRITO
+    function deleteProduct(){
+        const deleteProduct=document.querySelector('.delete');
+    
+        
+        deleteProduct.addEventListener('click',()=>{
+        productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+        lastValue=0;
+        cartNotification.innerText=lastValue;
+        });
+    }
+    
+    
+    //FUNCIONES
+    function drawProduct(){
+        productContainer.innerHTML=
+        
+        ` <div class="details-container">
+                    <img src="img/electronica1.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>CHGeek Cargador inalámbrico para automóvil <span>( Precio: $23.39)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button>Proceder al pago</button>
+                  </form>
+               `
+                 
+    
+        
+        deleteProduct()
+        let priceCar=document.querySelector('.car-price');
+        priceCar.innerHTML=`Subtotal(${lastValue} productos):    <span> $ ${lastValue*23.39} </span>`;
+    }
+    
+    //CERRAR EL MODAL
+    const closeModal=document.querySelector('.close');
+    
+    closeModal.addEventListener('click',()=>{
+        carModal.style.display='none';
+    });
+    
+        </script> <!---------FIN JAVASCRIPT---------->
+</body>
+</html>

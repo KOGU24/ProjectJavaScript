@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELT2</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <header>
+    <nav class="menu">
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu" class="menu-icon">&#9776;</label>
+        <a href="index.html">freeMARKT</a>
+
+        <nav class="menu-items">
+            <a href="pag1.html">Computadoras</a>
+            <a href="pag2.html">Videojuegos</a>
+            <a href="pag3.html">Electronica</a>
+        </nav>
+        <nav class="menu">
+            <a href="formulario.html">Registrarse</a>
+        </nav>
+
+        <div class="menu-car">
+            <div class="car-notification">0</div>
+            <img src="img/car.png" alt="" width="20px">
+        </div>
+
+    </nav>
+</header>
+      <br><br><br><br>
+      <section>
+       
+<img class="box1" src="img/electronica2.jpg" alt="">
+      
+
+        <div class="box2">
+            <h3>
+              UBeesize - Tripié para teléfono, portátil y flexible, con control remoto inalámbrico y pinza universal, 
+              compatible con todos los teléfonos celulares y cámaras, soporte para teléfono celular para grabación de video
+              </h3>
+            <hr>
+           
+            <hr>
+            <p> Sobre este artículo</p>
+            <ul>    
+                <li> Trípode portátil y compacto: las patas flexibles y compactas pueden envolverse fácilmente alrededor de bicicletas,
+                   postes y ramas. Con un peso de solo 5.29 oz y de pie a 10 pulgadas, este trípode es definitivamente el trípode más portátil y compacto</li>
+                <li>Calidad superior: las patas flexibles del trípode están hechas de metal grueso de alta calidad y conector de metal completo, reforzado con un revestimiento de goma y espuma resistente. 
+                  El diseño de patas de goma antideslizante mantiene el trípode ajustable muy estable ya sea en un escritorio o en el suelo</li>
+                <li>Modo vertical y horizontal posible: al girar la perilla lateral, la cabeza de bola se puede inclinar 90 fácilmente. Puede tomar fotos
+                   o videos con un control remoto inalámbrico desde una distancia de hasta 30 pies. Ideal para viajes, selfies o grabación de video</li>
+                <li>Accesorios funcionales: viene con un control remoto inalámbrico (compatible con todos los teléfonos celulares), un soporte universal para teléfono (funciona para teléfonos celulares 
+                  de hasta 3.54 pulgadas de ancho. Por una rosca de tornillo adaptador estándar, es compatible con cámaras digitales como Nikon/Canon</li>
+            </ul>
+        </div>
+        <div class="box3">
+          <p><span>$15.29</span></p>
+          <p >Cantidad</p>
+          <div class="details-product">
+            <div class="input">
+              <img src="img/minus.png" class="input-minus" width="20px" alt="">
+              <input class="input-number" type="number" value="0">
+              <img src="img/plus.png" class="input-plus" width="20px">
+            </div>
+            <br>
+            <button class="details-button">Add to cart</button>
+
+          </div>
+          <br>
+        
+          <form action="formulario.html">
+            <button class="comprar">Comprar</button>
+          </form>
+           <br>
+           <p class="enviado">Enviado por freeMARKT.com</p>
+           <p class="enviado">Vendido por freeMARKT.com</p>
+          
+        </div>
+      </section>
+        <br><br> 
+            <!--INICIO MODAL-->
+            <div class="car-modal"> 
+              <div class="close-modal">
+              <p>Carrito</p>
+              <img src="img/close.png" class="close"  alt="">
+              </div>
+              <hr>
+                <div class="car-modal-container">
+                  <div class="details-container">
+                    <img src="img/electronica2.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>
+                        UBeesize - Tripié para teléfono, portátil y flexible <span>( Precio: $15.29)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button class="comprar">Proceder al pago</button>
+                  </form>
+              
+              
+                </div>
+              </div>
+                        <!--FIN MODAL-->
+         <footer>
+            <nav>
+                <a href="">Condiciones de uso</a>
+                <a href="">Avisos de Privacidad</a>
+                
+            </nav>
+            <p>Todos los derechos reservados &copy; 2024 freeMARKT.com</p>
+                </footer>
+      
+   <!------INICIO CODIGO JAVASCRIPT---------->    
+   <script >
+    // CANTIDAD DE ARTICULOS INGRESADOS POR EL USUARIO
+    let minusBtn=document.querySelector('.input-minus');
+    let plusBtn=document.querySelector('.input-plus');
+    let userInput=document.querySelector('.input-number');
+    
+    
+    let userInputNumber=0;
+    
+    plusBtn.addEventListener('click',()=>{
+        userInputNumber++;
+        userInput.value=userInputNumber;
+        console.log(userInputNumber)
+       
+    });
+    
+    minusBtn.addEventListener('click',()=>{
+        userInputNumber--;
+        if(userInputNumber<=0){
+            userInputNumber=0;
+        }
+        userInput.value=userInputNumber;
+        console.log(userInputNumber);
+        
+    });
+    
+    //AGREGAR TOTAL DE PRODUCTOS AL CARRITO
+    const addToCart =document.querySelector('.details-button');
+    let cartNotification=document.querySelector('.car-notification');
+    let lastValue=parseInt(cartNotification.innerText);
+    
+    addToCart.addEventListener('click',()=>{
+    
+        alert('Agregado al carrito');
+        lastValue +=userInputNumber;
+    
+        cartNotification.innerText=lastValue;
+        cartNotification.style.display='block';
+        drawProduct();
+        
+    
+    });
+    
+    
+    //MOSTRAR MODAL CON EL DETALLE DE CARRITO
+    const carIcon=document.querySelector('.menu-car');
+    const carModal=document.querySelector('.car-modal');
+    //let priceCar=document.querySelector('.car-price');
+    const productContainer=document.querySelector('.car-modal-container');
+    
+    
+    
+    
+    carIcon.addEventListener('click', ()=>{
+        carModal.style.display='block';
+      
+        if(lastValue==0){
+            productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+    
+            
+        }else{
+            drawProduct();
+        }
+    
+    });
+    
+    //BORRAR LOS PRODUCTOS AGREGADOS AL CARRITO
+    function deleteProduct(){
+        const deleteProduct=document.querySelector('.delete');
+    
+        
+        deleteProduct.addEventListener('click',()=>{
+        productContainer.innerHTML='<p class="car-empty">Carro vacio</p>';
+        lastValue=0;
+        cartNotification.innerText=lastValue;
+        });
+    }
+    
+    
+    //FUNCIONES
+    function drawProduct(){
+        productContainer.innerHTML=
+        
+        ` <div class="details-container">
+                    <img src="img/electronica2.jpg"  class="img"  alt="">
+                    <div> 
+                      <p>
+                        UBeesize - Tripié para teléfono, portátil y flexible <span>( Precio: $15.29)</span> </p>
+                      <p class="car-price">  <span> $</span></p>
+                    </div>
+                    <img src="img/delete.png"  class="delete"  alt="">
+              
+                  </div>
+                  <form action="formulario.html">
+                  <button>Proceder al pago</button>
+                  </form> `
+                 
+    
+        
+        deleteProduct()
+        let priceCar=document.querySelector('.car-price');
+        priceCar.innerHTML=`Subtotal(${lastValue} productos):   <span> $ ${lastValue*15.29} </span>`;
+    }
+    
+    //CERRAR EL MODAL
+    const closeModal=document.querySelector('.close');
+    
+    closeModal.addEventListener('click',()=>{
+        carModal.style.display='none';
+    });
+    
+        </script> <!---------FIN JAVASCRIPT---------->
+</body>
+</html>
